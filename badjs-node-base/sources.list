@@ -1,0 +1,12 @@
+deb http://mirror-sng.oa.com/ubuntu/ xenial main restricted universe multiverse
+deb http://mirror-sng.oa.com/ubuntu/ xenial-security main restricted universe multiverse
+deb http://mirror-sng.oa.com/ubuntu/ xenial-updates main restricted universe multiverse
+deb http://mirror-sng.oa.com/ubuntu/ xenial-proposed main restricted universe multiverse
+deb http://mirror-sng.oa.com/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirror-sng.oa.com/ubuntu/ xenial main restricted universe multiverse
+deb-src http://mirror-sng.oa.com/ubuntu/ xenial-security main restricted universe multiverse
+deb-src http://mirror-sng.oa.com/ubuntu/ xenial-updates main restricted universe multiverse
+deb-src http://mirror-sng.oa.com/ubuntu/ xenial-proposed main restricted universe multiverse
+deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+# deb-src [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+deb-src http://mirror-sng.oa.com/ubuntu/ xenial-backports main restricted universe multiverse
