@@ -1,4 +1,4 @@
-FROM nginx-cron
+FROM gogoday/nginx-cron:0.1.0
 
 
 ADD nginx.conf /etc/nginx/nginx.conf

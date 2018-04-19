@@ -2,7 +2,7 @@ version: "3"
 services:
 
   badjs-mysql: 
-    image: badjs-mysql
+    image: gogoday/badjs-mysql:0.1.0
     restart: always
     ports:
       - 3306:3306
@@ -15,7 +15,7 @@ services:
         constraints: [node.role == manager]
 
   badjs-mongodb:
-    image: badjs-mongo:latest
+    image: gogoday/badjs-mongo:0.1.0
     restart: always
     ports:
       - 27017:27017
@@ -26,7 +26,7 @@ services:
         constraints: [node.role == manager]
   
   badjs-nginx:
-    image: badjs-nginx
+    image: gogoday/badjs-nginx:0.1.0
     restart: always
     ports:
       - 8088:80
@@ -41,6 +41,7 @@ services:
         constraints: [node.role == manager]
   
   badjs-run:
+      # image: gogoday/badjs-run:0.1.0
     image: badjs-run
     restart: always
     ports:
