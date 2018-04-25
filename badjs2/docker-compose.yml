@@ -10,9 +10,6 @@ services:
       - badjs-mysql:/varlib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-    deploy:
-      placement:
-        constraints: [node.role == manager]
 
   badjs-mongodb:
     image: gogoday/badjs-mongo:0.1.0
@@ -21,12 +18,9 @@ services:
       - 27017:27017
     volumes:
       - badjs-mongodb:/data/db
-    deploy:
-      placement:
-        constraints: [node.role == manager]
   
   badjs-nginx:
-    image: gogoday/badjs-nginx:0.1.0
+    image: gogoday/badjs-nginx:0.1.1
     restart: always
     ports:
       - 8088:80
@@ -36,13 +30,9 @@ services:
       - "badjs-run:badjs"
     depends_on:
       - "badjs-run"
-    deploy:
-      placement:
-        constraints: [node.role == manager]
   
   badjs-run:
-      # image: gogoday/badjs-run:0.1.0
-    image: badjs-run
+    image: gogoday/badjs-run:0.1.1
     restart: always
     ports:
       - 8081:8081
@@ -57,15 +47,12 @@ services:
       - "badjs-mysql:mysql"
       - "badjs-mongodb:mongodb"
     environment:
-      - WEB_EMAIL_HOMEPAGE=http://badjs2.ivweb.io/user/index.html
+      - WEB_EMAIL_HOMEPAGE=http://badjs2.com/user/index.html
       - WEB_EMAIL_MOD=ivwebMail
-      - WEB_EMAIL_USER=2580575484@qq.com
-      - WEB_EMAIL_PASS=scmvhonznuwlebii
-      - WEB_EMAIL_FROM="IVWEB" 2580575484@qq.com
-      - WEB_EMAIL_TO=sampsonwang@tencent.com
-    deploy:
-      placement:
-        constraints: [node.role == manager]
+      - WEB_EMAIL_USER=xxxx@qq.com
+      - WEB_EMAIL_PASS=xxxx
+      - WEB_EMAIL_FROM="IVWEB" xxx@qq.com
+      - WEB_EMAIL_TO=xxx@tencent.com
   
 volumes:
   badjs-mysql:

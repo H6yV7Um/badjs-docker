@@ -1,2 +1,2 @@
-1 0 * * * root /app/script/nginx_log.sh
+0 0 * * * root /app/script/nginx_log.sh
 
