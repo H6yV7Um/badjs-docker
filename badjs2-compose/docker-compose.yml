@@ -40,7 +40,6 @@ services:
     volumes:
       - badjs-nginx:/app/log
       - badjs-node-log:/app/nodelog
-      - /Users/sampsonwang/workspace/badjs-docker/badjs-ext/badjs-ivweb:/app/badjs-ivweb
     depends_on:
       - "badjs-mysql"
       - "badjs-mongodb"
