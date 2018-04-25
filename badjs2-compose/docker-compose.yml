@@ -1,0 +1,64 @@
+version: "3"
+services:
+
+  badjs-mysql: 
+    image: gogoday/badjs-mysql:0.1.1
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - badjs-mysql:/varlib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  badjs-mongodb:
+    image: gogoday/badjs-mongo:0.1.0
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - badjs-mongodb:/data/db
+  
+  badjs-nginx:
+    image: gogoday/badjs-nginx:0.1.1
+    restart: always
+    ports:
+      - 8088:80
+    volumes:
+      - badjs-nginx:/app/log
+    links: 
+      - "badjs-run:badjs"
+    depends_on:
+      - "badjs-run"
+  
+  badjs-run:
+    image: badjs-run-ext
+    restart: always
+    ports:
+      - 8081:8081
+      - 8082:8082
+    volumes:
+      - badjs-nginx:/app/log
+      - badjs-node-log:/app/nodelog
+      - /Users/sampsonwang/workspace/badjs-docker/badjs-ext/badjs-ivweb:/app/badjs-ivweb
+    depends_on:
+      - "badjs-mysql"
+      - "badjs-mongodb"
+    links:
+      - "badjs-mysql:mysql"
+      - "badjs-mongodb:mongodb"
+    environment:
+      - WEB_EMAIL_HOMEPAGE=http://badjs2.com/user/index.html
+      - WEB_EMAIL_MOD=ivwebMail
+      - WEB_EMAIL_USER=xxxx@qq.com
+      - WEB_EMAIL_PASS=xxxx
+      - WEB_EMAIL_FROM="IVWEB" xxx@qq.com
+      - WEB_EMAIL_TO=xxx@tencent.com
+  
+volumes:
+  badjs-mysql:
+  badjs-mongodb:
+  badjs-nginx:
+  badjs-node-log:
+
+

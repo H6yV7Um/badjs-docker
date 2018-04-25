@@ -1,0 +1,9 @@
+0 3 * * * root /app/badjs-ivweb/badjs-web/service/get_pv.sh >> /app/nodelog/get_pv.log
+
+# create b_quality table
+30 3 * * * root /app/node-v4.8.7-linux-x64/bin/node /app/badjs-ivweb/badjs-web/service/handle-quality.js >> /app/nodelog/handle-quality.log
+
+# send mail
+0 4 * * * root /app/node-v4.8.7-linux-x64/bin/node /app/badjs-ivweb/badjs-web/service/ScoreMail.js >> /app/nodelog/scoreMail.log
+
+

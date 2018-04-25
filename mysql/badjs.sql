@@ -233,6 +233,7 @@ CREATE TABLE `b_user` (
 LOCK TABLES `b_user` WRITE;
 /*!40000 ALTER TABLE `b_user` DISABLE KEYS */;
 INSERT INTO `b_user` VALUES (1,'sampsonwang','sampsonwang',1,'sampsonwang@tencent.com','952ad24938ada99304c5d8821e3af86e');
+INSERT INTO `b_user` VALUES (2,'admin','admin',1,null,'e10adc3949ba59abbe56e057f20f883e');
 /*!40000 ALTER TABLE `b_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
