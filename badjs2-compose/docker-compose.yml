@@ -32,7 +32,7 @@ services:
       - "badjs-run"
   
   badjs-run:
-    image: badjs-run-ext
+    image: gogoday/badjs-run-ext:0.1.0
     restart: always
     ports:
       - 8081:8081
